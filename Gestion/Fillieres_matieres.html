@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="../css/bootstrap/css/bootstrap.css">
+
+    <!-- STYLE PERSONNALISE -->
+    <link rel="stylesheet" href="../css/style.css">
+
+     <!-- fonteawesome cdn -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/solid.min.css">
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js"></script>
+
+      <!-- cdn select2 -->
+      <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+      <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    <title>Dashboard | Gestion De La Scolarité </title>
+</head>
+
+<body>
+
+    <header class="fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fs-5 ">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="../index.html">
+                    <img src="../images/logo/logo.PNG" alt="Logo du site ">
+                </a>
+    
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+    
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+    
+                    <ul class="navbar-nav">
+    
+                        <li class="nav-item">
+                            <a class="nav-link  " href="../index.html">Acceuil</a>
+                        </li>
+    
+                        <li class="nav-item">
+                            <a class="nav-link " href="../Gestion/Etudiants.html">Etudiants</a>
+                        </li>
+    
+                        <li class="nav-item">
+                            <a class="nav-link" href="../Gestion/Comptabilite.html">Comptabilité</a>
+                        </li>
+    
+                        <li class="nav-item">
+                            <a class="nav-link active" href="../Gestion/Fillieres_matieres.html">Fillières & Matières </a>
+                        </li>
+    
+                        <li class="nav-item">
+                            <a class="nav-link" href="../Gestion/Composition_notes.html">Notes et Compositions </a>
+                        </li>
+    
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"></a>
+                        </li>
+    
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle Profil" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                
+                                <div class="Profil_image"> <img src="../images/babydoge/babydogeprofil.jpg" alt="image du profil de l'utilisateur connecté"></div>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item "  href="#">Profil</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="../connexion/connexion.html">Déconnexion</a></li>
+                            </ul>
+                        </li>
+    
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+
+        <div class="container">
+
+            <div class="row">
+                
+                <div class="col-lg-4 col-md-6 col-sm-10 p-3">
+                    <div class="   d-flex align-items-center justify-content-center " style="background-color: rgb(141, 241, 87); height: 200px;" > <a href="liste-matiere.html" class="d-flex align-items-center justify-content-center" style="color: rgb(255, 255, 255);" > <i class=" fa-solid  fa-kitchen-set fs-5  fs-1 p-5  " style="width: 40%; height: 40%;"></i></a></div>
+
+                    <p class="fs-3 text-center"> Cuisine</p>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-10 p-3">
+                    <div class="   d-flex align-items-center justify-content-center " style="background-color: rgb(52, 17, 17); height: 200px;"  >  <a href="liste-matiere.html" class="d-flex align-items-center justify-content-center" style="color: rgb(255, 255, 255);" > <i class="fa-solid fa-money-bill-1-wave fs-5  fs-1 p-5  " style="width: 40%; height: 40%;"></i></a>  </div>
+                        
+                    <p class="fs-3 text-center"> Finances & Economie</p>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-10 p-3">
+                    <div class="   d-flex align-items-center justify-content-center " style="background-color: rgb(242, 154, 46); height: 200px;" >  <a href="liste-matiere.html" class="d-flex align-items-center justify-content-center" style="color: rgb(255, 255, 255);" > <i class=" fa-solid  fa-truck-moving fs-5  fs-1 p-5  " style="width: 40%; height: 40%;"></i></a></div>
+    
+                    <p class="fs-3 text-center"> Conduite D'engin</p>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-10 p-3">
+                    <div class="   d-flex align-items-center justify-content-center " style="background-color: rgb(142, 171, 239); height: 200px;" >  <a href="liste-matiere.html" class="d-flex align-items-center justify-content-center" style="color: rgb(255, 255, 255);" > <i  class=" fa-solid  fa-computer fs-5  fs-1 p-5  " style="width: 40%; height: 40%;"></i></a></div>
+                        <p class="fs-3 text-center">Informatique Géneral</p>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-10 p-3">
+                    <div class="   d-flex align-items-center justify-content-center " style="background-color: rgb(104, 232, 246); height: 200px;" >  <a href="liste-matiere.html" class="d-flex align-items-center justify-content-center" style="color: rgb(255, 255, 255);" > <i class=" fa-solid  fa-hotel fs-5  fs-1 p-5  " style="width: 40%; height: 40%;"></i></a></div>
+    
+                    <p class="fs-3 text-center">  Hotellerie</p>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-10 p-3">
+                    <div class="   d-flex align-items-center justify-content-center " style="background-color: rgb(55, 255, 0); height: 200px;" >  <a href="liste-matiere.html" class="d-flex align-items-center justify-content-center" style="color: rgb(255, 255, 255);" > <i class=" fa-solid  fa-hospital fs-5  fs-1 p-5  " style="width: 40%; height: 40%;"></i></a></div>
+        
+                    <p class="fs-3 text-center">  Medecine</p>
+                    </div>
+                </div>
+
+                
+            </div>
+
+            <div class="row">
+                <div class="col-12  d-flex justify-content-center">
+                 <button type="button" class="btn btn-success m-5 col-10 " id="registre" data-bs-toggle="modal" data-bs-target="#exampleModal2" > AJOUTER UNE FILIERE </button>
+                </div>
+ 
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="../css/bootstrap/js/bootstrap.bundle.js"></script>
+
+</body>
+
+</html>
