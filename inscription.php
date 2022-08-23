@@ -1,4 +1,7 @@
+<?php
+    include 'function.php'
 
+?>
 
 
 
@@ -31,6 +34,28 @@
 
                     <a href="#" class="h1"><b>Ges</b>Scolarité</a>
                 </div>
+                     <?php
+
+                    $erreurs = array();
+
+                    $donnees = array();
+
+                    $message = array();
+
+                    if (isset($_GET["erreurs"]) && !empty($_GET["erreurs"])) {
+                        $erreurs = json_decode($_GET["erreurs"], true);
+                    }
+
+                    if (isset($_GET["donnees"]) && !empty($_GET["donnees"])) {
+                        $donnees = json_decode($_GET["donnees"], true);
+                    }
+
+                    if (isset($_GET["message"]) && !empty($_GET["message"])) {
+                        $message = json_decode($_GET["message"], true);
+                    }
+
+                    ?>
+
 
 
                 <div class="card-body">
@@ -53,7 +78,8 @@
 
                             <div class="input-group">
 
-                                <input type="text" name="nom" id="inscription-nom" class="form-control" placeholder="Veuillez entrer votre nom" value="" required="">
+                                <input type="text" name="nom" id="inscription-nom" class="form-control" placeholder="Veuillez entrer votre nom" 
+                                value="<?= (isset($donnees["nom"]) && !empty($donnees["nom"])) ? $donnees["nom"] : ""; ?>" required>
 
                                 <div class="input-group-append">
 
@@ -87,7 +113,8 @@
 
                             <div class="input-group">
 
-                                <input type="text" name="prenom" id="inscription-prenom" class="form-control" placeholder="Veuillez entrer votre prénom" value="" required="">
+                                <input type="text" name="prenom" id="inscription-prenom" class="form-control" placeholder="Veuillez entrer votre prénom"
+                                value="<?= (isset($donnees["prenom"]) && !empty($donnees["prenom"])) ? $donnees["prenom"] : ""; ?>" required>
 
                                 <div class="input-group-append">
 
@@ -123,7 +150,8 @@
 
                                 <div class="icheck-primary d-inline">
 
-                                    <input type="radio" name="sexe" checked="" id="sexe-m" value="M">
+                                    <input type="radio" name="sexe" checked="" id="sexe-m" 
+                                    value="<?= (isset($donnees["sexe"]) && !empty($donnees["sexe"])) ? $donnees["sexe"] : ""; ?>">
 
                                     <label for="sexe-m">M</label>
 
@@ -159,7 +187,8 @@
 
                             <div class="input-group mb-3">
 
-                                <input type="date" name="date-naissance" id="inscription-date-naissance" class="form-control" placeholder="Veuillez entrer votre date de naissance" value="" required="">
+                                <input type="date" name="date-naissance" id="inscription-date-naissance" class="form-control" placeholder="Veuillez entrer votre date de naissance"
+                                 value="<?= (isset($donnees["date-naissance"]) && !empty($donnees["date-naissance"])) ? $donnees["date-naissance"] : ""; ?>" required>
 
                                 <div class="input-group-append">
 
@@ -193,7 +222,8 @@
 
                             <div class="input-group mb-3">
 
-                                <input type="email" name="email" id="inscription-email" class="form-control" placeholder="Veuillex entrer votre address email" value="" required="">
+                                <input type="email" name="email" id="inscription-email" class="form-control" placeholder="Veuillex entrer votre address email"
+                                 value="<?= (isset($donnees["email"]) && !empty($donnees["email"])) ? $donnees["email"] : ""; ?>" required>
 
                                 <div class="input-group-append">
 
@@ -227,7 +257,8 @@
 
                             <div class="input-group mb-3">
 
-                                <input type="text" name="nom-utilisateur" id="inscription-nom-utilisateur" class="form-control" placeholder="Veuillez entrer votre nom d'utilisateur" value="" required="">
+                                <input type="text" name="nom-utilisateur" id="inscription-nom-utilisateur" class="form-control" placeholder="Veuillez entrer votre nom d'utilisateur"
+                                 value="<?= (isset($donnees["nom-utilisateur"]) && !empty($donnees["nom-utilisateur"])) ? $donnees["nom-utilisateur"] : ""; ?>" required>
 
                                 <div class="input-group-append">
 
@@ -251,7 +282,7 @@
                         <!-- Le champs mot de passe -->
                         <div class="col-sm-12 mb-3">
 
-                            <label for="inscription-mot-passe">
+                            <label for="inscription-mot-de-passe">
 
                                 Mot de passe:
 
@@ -261,7 +292,8 @@
 
                             <div class="input-group mb-3">
 
-                                <input type="password" name="mot-passe" id="inscription-mot-passe" class="form-control" placeholder="Veuillez entrer votre mot de passe" value="" required="">
+                                <input type="password" name="mot-de-passe" id="inscription-mot-de-passe" class="form-control" placeholder="Veuillez entrer votre mot de passe"
+                                 value="<?= (isset($donnees["password"]) && !empty($donnees["password"])) ? $donnees["password"] : ""; ?>" required>
 
                                 <div class="input-group-append">
 
@@ -285,7 +317,7 @@
                         <!-- Le champs retapez mot de passe -->
                         <div class="col-sm-12 mb-3">
 
-                            <label for="inscription-retapez-mot-passe">
+                            <label for="inscription-retapez-mot-de-passe">
 
                                 Retapez mot de passe:
 
@@ -295,7 +327,8 @@
 
                             <div class="input-group mb-3">
 
-                                <input type="password" name="retapez-mot-passe" id="inscription-retapez-mot-passe" class="form-control" placeholder="Veuillez retaper votre mot de passe" value="" required="">
+                                <input type="password" name="retapez-mot-de-passe" id="inscription-retapez-mot-de-passe" class="form-control" placeholder="Veuillez retaper votre mot de passe" 
+                                value="<?= (isset($donnees["retape-password"]) && !empty($donnees["retape-password"])) ? $donnees["retape-password"] : ""; ?>" required>
 
                                 <div class="input-group-append">
 
@@ -332,7 +365,7 @@
 
                     </form>
 
-                <a href="connexion.php" class="text-center mt-3">J'ai deja un compte</a>
+                <a href="connexion.php" class="text-center mt-3">Se connecter</a>
 
                 </div>
 
@@ -350,7 +383,14 @@
 
 
 
+<!-- /.register-box -->
 
+<!-- jQuery -->
+<script src="public/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="public/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="public/js/adminlte.min.js"></script>
             
 </body>
 </html>
