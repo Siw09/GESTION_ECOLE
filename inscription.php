@@ -1,9 +1,14 @@
 <?php
-    include 'function.php'
+
+include 'function.php';
+
+$user_connected = check_if_user_conneted();
+
+if($user_connected){
+    header("location: dashboard.php");
+}
 
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -34,36 +39,57 @@
 
                     <a href="#" class="h1"><b>Ges</b>Scolarité</a>
                 </div>
-                     <?php
-
-                    $erreurs = array();
-
-                    $donnees = array();
-
-                    $message = array();
-
-                    if (isset($_GET["erreurs"]) && !empty($_GET["erreurs"])) {
-                        $erreurs = json_decode($_GET["erreurs"], true);
-                    }
-
-                    if (isset($_GET["donnees"]) && !empty($_GET["donnees"])) {
-                        $donnees = json_decode($_GET["donnees"], true);
-                    }
-
-                    if (isset($_GET["message"]) && !empty($_GET["message"])) {
-                        $message = json_decode($_GET["message"], true);
-                    }
-
-                    ?>
 
 
+                <?php
+
+                $erreurs = array();
+
+                $donnees = array();
+
+                $message = array();
+
+                if (isset($_GET["erreurs"]) && !empty($_GET["erreurs"])) {
+                    $erreurs = json_decode($_GET["erreurs"], true);
+                }
+
+                if (isset($_GET["donnees"]) && !empty($_GET["donnees"])) {
+                    $donnees = json_decode($_GET["donnees"], true);
+                }
+
+                if (isset($_GET["message"]) && !empty($_GET["message"])) {
+                    $message = json_decode($_GET["message"], true);
+                }
+
+                ?>
 
                 <div class="card-body">
 
+                    <?php
+
+                    if (isset($message["statut"]) && 0 == $message["statut"]) {
+
+                        ?>
+                        <div class="alert alert-danger" role="alert">
+                            <?= $message["message"]; ?>
+                        </div>
+                        <?php
+
+                    } else if (isset($message["statut"]) && 1 == $message["statut"]) {
+
+                        ?>
+                        <div class="alert alert-success" role="alert">
+                            <?= $message["message"]; ?>
+                        </div>
+                        <?php
+
+                    }
+
+                    ?>
         
                     <p class="login-box-msg">Enregistrer un utilisateur </p>
 
-                    <form action="inscription-traitement.php" method="post" novalidate="">
+                    <form action="inscription-traitement.php" method="post" novalidate>
 
                         <!-- Le champs nom -->
                         <div class="col-sm-12 mb-3">
@@ -72,7 +98,12 @@
 
                                 Nom:
 
-                                <span class="text-danger">(*)</span>
+                                <span class="text-danger">(*) 
+                                <br>
+                                <?= (isset($donnees["nom"]) && empty($donnees["nom"])) ?  $erreurs["nom"] : ""; ?>
+
+                                </span>
+                                
 
                             </label>
 
@@ -95,7 +126,14 @@
 
                             <span class="text-danger">
 
-                                
+                                <?php
+
+                                if (isset($erreurs["nom"]) && !empty($erreurs["nom"])) {
+                                    echo $erreurs["nom"];
+                                }
+
+                                ?>
+
                             </span>
 
                         </div>
@@ -107,7 +145,11 @@
 
                                 Prénom:
 
-                                <span class="text-danger">(*)</span>
+                                <span class="text-danger">(*)
+                                <br>
+                                <?= (isset($donnees["prenom"]) && empty($donnees["prenom"])) ?  $erreurs["prenom"] : ""; ?> 
+
+                                </span>
 
                             </label>
 
@@ -130,7 +172,14 @@
 
                             <span class="text-danger">
 
-                                
+                                <?php
+
+                                if (isset($erreurs["prenom"]) && !empty($erreurs["prenom"])) {
+                                    echo $erreurs["prenom"];
+                                }
+
+                                ?>
+
                             </span>
 
                         </div>
@@ -142,7 +191,11 @@
 
                                 Sexe:
 
-                                <span class="text-danger">(*)</span>
+                                <span class="text-danger">(*)
+                                    
+                                <br>
+                                <?= (isset($donnees["sexe"]) && empty($donnees["sexe"])) ?  $erreurs["sexe"] : ""; ?> 
+                                </span>
 
                             </label>
 
@@ -150,8 +203,7 @@
 
                                 <div class="icheck-primary d-inline">
 
-                                    <input type="radio" name="sexe" checked="" id="sexe-m" 
-                                    value="<?= (isset($donnees["sexe"]) && !empty($donnees["sexe"])) ? $donnees["sexe"] : ""; ?>">
+                                    <input type="radio" name="sexe" checked="" id="sexe-m" value="M">
 
                                     <label for="sexe-m">M</label>
 
@@ -169,9 +221,15 @@
 
                             <span class="text-danger">
 
-                                
-                            </span>
+                                <?php
 
+                                if (isset($erreurs["sexe"]) && !empty($erreurs["sexe"])) {
+                                    echo $erreurs["sexe"];
+                                }
+
+                                ?>
+
+                            </span>
                         </div>
 
                         <!-- Le champs date de naissance -->
@@ -181,7 +239,10 @@
 
                                 Date de naissance:
 
-                                <span class="text-danger">(*)</span>
+                                <span class="text-danger">(*)
+                                <br>
+                                <?= (isset($donnees["date-naissance"]) && empty($donnees["date-naissance"])) ?  $erreurs["date-naissance"] : ""; ?> 
+                            </span>
 
                             </label>
 
@@ -201,10 +262,16 @@
                                 </div>
 
                             </div>
-
                             <span class="text-danger">
 
-                                
+                                <?php
+
+                                if (isset($erreurs["date-naissance"]) && !empty($erreurs["date-naissance"])) {
+                                    echo $erreurs["date-naissance"];
+                                }
+
+                                ?>
+
                             </span>
 
                         </div>
@@ -216,7 +283,11 @@
 
                                 Email:
 
-                                <span class="text-danger">(*)</span>
+                                <span class="text-danger">(*)
+                                    
+                                <br>
+                                <?= (isset($donnees["email"]) && empty($donnees["email"])) ?  $erreurs["email"] : ""; ?> 
+                                </span>
 
                             </label>
 
@@ -239,7 +310,14 @@
 
                             <span class="text-danger">
 
-                                
+                                <?php
+
+                                if (isset($erreurs["email"]) && !empty($erreurs["email"])) {
+                                    echo $erreurs["email"];
+                                }
+
+                                ?>
+
                             </span>
 
                         </div>
@@ -251,7 +329,11 @@
 
                                 Nom d'utilisateur:
 
-                                <span class="text-danger">(*)</span>
+                                <span class="text-danger">(*)
+                                    
+                                <br>
+                                <?= (isset($donnees["nom-utilisateur"]) && empty($donnees["nom-utilisateur"])) ?  $erreurs["nom-utilisateur"] : ""; ?> 
+                                </span>
 
                             </label>
 
@@ -274,7 +356,14 @@
 
                             <span class="text-danger">
 
-                                
+                                <?php
+
+                                if (isset($erreurs["nom-utilisateur"]) && !empty($erreurs["nom-utilisateur"])) {
+                                    echo $erreurs["nom-utilisateur"];
+                                }
+
+                                ?>
+
                             </span>
 
                         </div>
@@ -286,14 +375,18 @@
 
                                 Mot de passe:
 
-                                <span class="text-danger">(*)</span>
+                                <span class="text-danger">(*)
+                                    
+                                <br>
+                                <?= (isset($donnees["mot-de-passe"]) && empty($donnees["mot-de-passe"])) ?  $erreurs["mot-de-passe"] : ""; ?> 
+                                </span>
 
                             </label>
 
                             <div class="input-group mb-3">
 
                                 <input type="password" name="mot-de-passe" id="inscription-mot-de-passe" class="form-control" placeholder="Veuillez entrer votre mot de passe"
-                                 value="<?= (isset($donnees["password"]) && !empty($donnees["password"])) ? $donnees["password"] : ""; ?>" required>
+                                 value="<?= (isset($donnees["mot-de-passe"]) && !empty($donnees["mot-de-passe"])) ? $donnees["mot-de-passe"] : ""; ?>" required>
 
                                 <div class="input-group-append">
 
@@ -309,8 +402,16 @@
 
                             <span class="text-danger">
 
-                                
+                                <?php
+
+                                if (isset($erreurs["mot-de-passe"]) && !empty($erreurs["mot-de-passe"])) {
+                                    echo $erreurs["mot-de-passe"];
+                                }
+
+                                ?>
+
                             </span>
+
 
                         </div>
 
@@ -321,14 +422,18 @@
 
                                 Retapez mot de passe:
 
-                                <span class="text-danger">(*)</span>
+                                <span class="text-danger">(*)
+                                    
+                                    <br>
+                                    <?= (isset($donnees["mot-de-passe"]) && empty($donnees["mot-de-passe"])) ?  $erreurs["mot-de-passe"] : ""; ?> 
+                                    </span>
 
                             </label>
 
                             <div class="input-group mb-3">
 
                                 <input type="password" name="retapez-mot-de-passe" id="inscription-retapez-mot-de-passe" class="form-control" placeholder="Veuillez retaper votre mot de passe" 
-                                value="<?= (isset($donnees["retape-password"]) && !empty($donnees["retape-password"])) ? $donnees["retape-password"] : ""; ?>" required>
+                                value="<?= (isset($donnees["retapez-mot-de-passe"]) && !empty($donnees["retapez-mot-de-passe"])) ? $donnees["retapez-mot-de-passe"] : ""; ?>" required>
 
                                 <div class="input-group-append">
 
@@ -344,7 +449,14 @@
 
                             <span class="text-danger">
 
-                                
+                                <?php
+
+                                if (isset($erreurs["retapez-mot-de-passe"]) && !empty($erreurs["retapez-mot-de-passe"])) {
+                                    echo $erreurs["retapez-mot-de-passe"];
+                                }
+
+                                ?>
+
                             </span>
 
                         </div>

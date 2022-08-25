@@ -69,16 +69,22 @@ if (empty($erreurs)) {
 }
 
 
-$check_email_exist_in_db = check_email_exist_in_db($donnees["email"]);
+if  (isset($donnees["email"]) && !empty($donnees["email"])) {
 
-if ($check_email_exist_in_db) {
-    $erreurs["email"] = "Cette adresse mail est déja utilisé. Veuillez le changez.";
+    $check_email_exist_in_db = check_email_exist_in_db($donnees["email"]);
+
+    if ($check_email_exist_in_db) {
+        $erreurs["email"] = "Cette adresse mail est déja utilisé. Veuillez le changez.";
+    }
 }
-  
-$check_user_name_exist_in_db = check_user_name_exist_in_db($donnees["nom-utilisateur"]);
 
-if ($check_user_name_exist_in_db) {
-    $erreurs["nom-utilisateur"] = "Ce nom d'utilisateur est déja utilisé. Veuillez le changez.";
+  
+if  (isset($donnees["email"]) && !empty($donnees["email"])) {
+    $check_user_name_exist_in_db = check_user_name_exist_in_db($donnees["nom-utilisateur"]);
+
+    if ($check_user_name_exist_in_db) {
+        $erreurs["nom-utilisateur"] = "Ce nom d'utilisateur est déja utilisé. Veuillez le changez.";
+    }
 }
 
 

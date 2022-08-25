@@ -23,7 +23,7 @@ function connect_db()
 
     try {
         $db = new PDO('mysql:host=localhost;dbname=gestionscolarite; charset=utf8', 'root', '');
-    } catch (Exception $e) {
+    } catch (PDOException $e) {
         die("Oups! Une erreur s'est produite lors de la connexion a la base de donnée.");
     }
 
@@ -127,7 +127,7 @@ function check_if_user_exist(string $email_user_name, string $password)
     $resultat = $verifier_nom_utilisateur->execute([
         'email' => $email_user_name,
         'nom_utilisateur' => $email_user_name,
-        'mot_passe' => sha1($password),
+        'mot_passe' => sha1($mot_de_passe),
     ]);
 
     if ($resultat) {
