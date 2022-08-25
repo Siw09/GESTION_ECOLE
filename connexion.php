@@ -1,6 +1,15 @@
 
+<?php
 
+include 'function.php';
 
+$user_connected = check_if_user_conneted();
+
+if ($user_connected) {
+    header("location: dashboard.php");
+}
+
+?>
 
 
 
@@ -15,7 +24,7 @@
     <title>Connexion | Gestion de scolarité</title>
 
 
-    <!-- Google Font: Source Sans Pro 
+    <!-- Google Font: Source Sans Pro
     <link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback"> -->
     <!-- Font Awesome -->
     <link rel="stylesheet" href="public/plugins/fontawesome-free/css/all.min.css">
@@ -27,7 +36,7 @@
 <body>
   <div class="container ">
       <div class="row  m-5 p-5 ">
-      
+
           <div class=" col-3 col-md-2 col-sm-1"> </div>
           <div class="centre col-12 col-md-8 col-sm-10 card card-outline card-success card">
 
@@ -116,7 +125,7 @@
                   <div class="row  ">
 
                     <div class="col-lg-7 "></div>
-              
+
                     <div class="col-lg-5 sm-12">  <button type="submit" class="btn btn-success btn-block">Submit</button>  </div>
                     </div>
                   <div class="  pb-3  ">
@@ -130,6 +139,6 @@
           <div class=" col-3 col-md-2 col-sm-1"> </div>
       </div>
   </div>
-    
+
 </body>
 </html>

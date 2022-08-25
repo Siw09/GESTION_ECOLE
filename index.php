@@ -15,11 +15,8 @@ if ($user_connected) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Connexion | Gestion d'une bibliothèque</title>
+    <title>Connexion | Gestion de scolarité</title>
 
-    <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="public/plugins/fontawesome-free/css/all.min.css">
     <!-- icheck bootstrap -->
@@ -32,11 +29,11 @@ if ($user_connected) {
 
 <div class="col-sm-5">
 
-    <div class="card card-outline card-primary">
+<div class="centre  card card-outline card-success card">
 
         <div class="card-header text-center">
 
-            <a href="#" class="h1"><b>Ges</b>Bibliothèque</a>
+        <a href="#" class="h1"><b>Ges</b>Scolarité</a>
 
         </div>
 
@@ -104,9 +101,10 @@ if ($user_connected) {
                     <div class="input-group mb-3">
 
                         <input type="text" name="email-nom-utilisateur" id="inscription-email" class="form-control"
-                               placeholder="Veuillez entrer votre address email ou votre nom d'utilisateur"
-                               value="<?= (isset($donnees["email-nom-utilisateur"]) && !empty($donnees["email-nom-utilisateur"])) ? $donnees["email-nom-utilisateur"] : ""; ?>"
-                               required>
+                            placeholder="Veuillez entrer votre address email ou votre nom d'utilisateur"
+                            value="<?= (isset($donnees["email-nom-utilisateur"]) && !empty($donnees["email-nom-utilisateur"])) ?
+                            $donnees["email-nom-utilisateur"] : ""; ?>"
+                            required>
 
                         <div class="input-group-append">
 
@@ -147,10 +145,11 @@ if ($user_connected) {
 
                     <div class="input-group mb-3">
 
-                        <input type="password" name="mot-passe" id="inscription-mot-passe" class="form-control"
-                               placeholder="Veuillez entrer votre mot de passe"
-                               value="<?= (isset($donnees["mot-passe"]) && !empty($donnees["mot-passe"])) ? $donnees["mot-passe"] : ""; ?>"
-                               required>
+                        <input type="password" name="mot-de-passe" id="inscription-mot-passe" class="form-control"
+                            placeholder="Veuillez entrer votre mot de passe"
+                            value="<?= (isset($donnees["mot-de-passe"]) && !empty($donnees["mot-de-passe"])) ?
+                            $donnees["mot-de-passe"] : ""; ?>"
+                            required>
 
                         <div class="input-group-append">
 
@@ -168,8 +167,8 @@ if ($user_connected) {
 
                         <?php
 
-                        if (isset($erreurs["mot-passe"]) && !empty($erreurs["mot-passe"])) {
-                            echo $erreurs["mot-passe"];
+                        if (isset($erreurs["mot-de-passe"]) && !empty($erreurs["mot-de-passe"])) {
+                            echo $erreurs["mot-de-passe"];
                         }
 
                         ?>
@@ -185,7 +184,7 @@ if ($user_connected) {
                     <!-- /.col -->
                     <div class="col-6">
 
-                        <button type="submit" class="btn btn-primary btn-block">Connexion</button>
+                        <button type="submit" class="btn btn-success btn-block">Connexion</button>
 
                     </div>
                     <!-- /.col -->

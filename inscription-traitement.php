@@ -78,7 +78,6 @@ if  (isset($donnees["email"]) && !empty($donnees["email"])) {
     }
 }
 
-  
 if  (isset($donnees["email"]) && !empty($donnees["email"])) {
     $check_user_name_exist_in_db = check_user_name_exist_in_db($donnees["nom-utilisateur"]);
 

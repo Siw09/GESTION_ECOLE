@@ -3,7 +3,7 @@
 
 use vendor\PHPMailer\PHPMailer\PHPMailer;
 use vendor\PHPMailer\PHPMailer\SMTP;
-use vendor\PHPMailer\PHPMailer\Exception;  
+use vendor\PHPMailer\PHPMailer\Exception;
 
 
 //Load Composer's autoloader
@@ -67,7 +67,7 @@ function check_email_exist_in_db(string $email)
 
     return $check;
 
-} 
+}
 
 
 /**
@@ -120,7 +120,8 @@ function check_if_user_exist(string $email_user_name, string $password)
 
     $db = connect_db();
 
-    $requette = "SELECT * FROM utilisateur WHERE (email = :email or nom_utilisateur = :nom_utilisateur ) and mot_passe = :mot_passe";
+    $requette = "SELECT * FROM utilisateur WHERE (email = :email or nom_utilisateur = :nom_utilisateur ) and
+        mot-passe = :mot_passe";
 
     $verifier_nom_utilisateur = $db->prepare($requette);
 
@@ -150,7 +151,7 @@ function check_if_user_conneted()
 
     if (isset($_COOKIE["info_utilisateur"]) && !empty($_COOKIE["info_utilisateur"])) {
 
-        //$user_info = json_decode($_COOKIE["user_info"], true);
+        $user_info = json_decode($_COOKIE["user_info"], true);
 
         $check = true;
 
