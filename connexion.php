@@ -38,7 +38,7 @@
             </div>
           <p class="login-box-msg">Se connecter</p>
 
-            <form>
+          <form action="connexion-traitement.php" method="post" novalidate>
                 <div class="col-sm-12 mb-3">
 
                     <label for="inscription-email">
@@ -66,15 +66,18 @@
                     </div>
 
                     <span class="text-danger">
+                        <?php
 
-                        
+                            if (isset($erreurs["email-nom-utilisateur"]) && !empty($erreurs["email-nom-utilisateur"])) {
+                                  echo  $erreurs["email-nom-utilisateur"];
+                            } ?>
                     </span>
 
                 </div>
 
                 <div class="col-sm-12 mb-3">
 
-                    <label for="inscription-mot-passe">
+                    <label for="inscription-mot-de-passe">
 
                         Mot de passe:
 
@@ -84,7 +87,7 @@
 
                     <div class="input-group mb-3">
 
-                        <input type="password" name="mot-passe" id="inscription-mot-passe" class="form-control" placeholder="Veuillez entrer votre mot de passe" value="" required="">
+                        <input type="password" name="mot-de-passe" id="inscription-mot-de-passe" class="form-control" placeholder="Veuillez entrer votre mot de passe" value="" required="">
 
                         <div class="input-group-append">
 
@@ -100,7 +103,11 @@
 
                     <span class="text-danger">
 
-                        
+                          <?php
+
+                            if (isset($erreurs["mot-de-passe"]) && !empty($erreurs["mot-de-passe"])) {
+                                echo  $erreurs["mot-de-passe"];
+                            } ?>
                     </span>
 
                 </div>

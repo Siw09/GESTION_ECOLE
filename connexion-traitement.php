@@ -14,15 +14,15 @@ if (isset($_POST["email-nom-utilisateur"]) && !empty($_POST["email-nom-utilisate
     $erreurs["email-nom-utilisateur"] = "Le champs email est requis. Veuillez le renseigné.";
 }
 
-if (isset($_POST["mot-passe"]) && !empty($_POST["mot-passe"])) {
-    $donnees["mot-passe"] = $_POST["mot-passe"];
+if (isset($_POST["mot-de-passe"]) && !empty($_POST["mot-de-passe"])) {
+    $donnees["mot-de-passe"] = $_POST["mot-de-passe"];
 } else {
-    $erreurs["mot-passe"] = "Le champs mot de passe est requis. Veuillez le renseigné.";
+    $erreurs["mot-de-passe"] = "Le champs mot de passe est requis. Veuillez le renseigné.";
 }
 
 if (empty($erreurs)) {
 
-    $user = check_if_user_exist($donnees["email-nom-utilisateur"], $donnees["mot-passe"]);
+    $user = check_if_user_exist($donnees["email-nom-utilisateur"], $donnees["mot-de-passe"]);
 
     if (isset($user) && !empty($user) && is_array($user)) {
 
