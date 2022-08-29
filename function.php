@@ -199,3 +199,62 @@ function send_mail($email, $message)
     }
 }
 
+
+
+
+
+
+/*       cette fonction permet de charger dinamiquement le contenu
+de la page de getion en fonction de la requette de l'utilisateur*/
+
+function contenu()
+{
+
+    if (isset($_GET["requette"]) && !empty($_GET["requette"])) {
+
+        switch ($_GET["requette"]) {
+
+            case "Comptabilite":
+                include "Gestion/Comptabilite.php";
+                break;
+
+            case "etudiants":
+                include "Gestion/Etudiants.php";
+                break;
+
+            case "acceuil":
+                include "Gestion/Fillieres_matieres.php";
+                break;
+
+            case "modifier-auteur":
+                include "Gestion/modifier-auteur.php";
+                break;
+
+            case "modifier-auteur-traitement":
+                include "Gestion//modifier-auteur-traitement.php";
+                break;
+
+
+            case "supprimer-auteur":
+                include "Gestion/supprimer-auteur.php";
+                break;
+
+            case "Fillieres_matieres":
+                include "Gestion/Fillieres_matieres.php";
+                break;
+
+            case "Composition_notes":
+                include "Gestion/Composition_notes.php";
+                break;
+
+            default:
+                include "Gestion/liste-auteurs.php";
+                break;
+        }
+
+    } else {
+
+        include "Gestion/liste-auteurs.php";
+
+    }
+}
